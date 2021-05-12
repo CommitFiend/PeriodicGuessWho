@@ -1,0 +1,642 @@
+<!--| Periodic Guess Who : A Guess-Who type Game for the periodic Table    |
+    | Copyright (C) <2021>  <William Rahal>                                |
+    |                                                                      |
+    | This program is free software: you can redistribute it and/or modify |
+    | it under the terms of the GNU General Public License as published by |
+    | the Free Software Foundation, either version 3 of the License, or    |
+    | (at your option) any later version.                                  |
+    |                                                                      |
+    | This program is distributed in the hope that it will be useful,      |
+    | but WITHOUT ANY WARRANTY; without even the implied warranty of       |
+    | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        |
+    | GNU General Public License for more details.                         |
+    |                                                                      |
+    | You should have received a copy of the GNU General Public License    |
+    | along with this program. (See COPY.txt)                              |
+    | If not, see <https://www.gnu.org/licenses/                           |
+    |                                                                      |
+    | You can contact me (the author) at rahal.w@hotmail.ca,               |
+    | or on github as @Inlaudible                                          |-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Periodic Guess Who</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interface for playing Guess Who with the periodic table in a classroom setting">
+    <meta name="keywords" content="Periodic Table, Chemistry">
+    <meta name="author" content="William Rahal">
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Custom CSS End -->
+</head>
+<body>
+    <br>
+    <table>
+        <thead>
+        <tfoot>
+        <tr>
+            <td colspan="19">
+                <button id="ResetButton">Reset Table</button>
+            </td>
+        </tr>
+        </tfoot>
+            <tr>
+                <td class="number">Group &#x2192;<br>Period &#x2193;</td><!-- Labels -->
+                <td class="number">
+                    <button id="g1">1</button>
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="number">
+                    <button id="g2">2</button>
+                </td><!-- Col 2 -->
+                <td class="number">
+                    <button id="g3">3</button>
+                </td><!-- Col 3 -->
+                <td class="number">
+                    <button id="g4">4</button>
+                </td><!-- Col 4 -->
+                <td class="number">
+                    <button id="g5">5</button>
+                </td><!-- Col 5 -->
+                <td class="number">
+                    <button id="g6">6</button>
+                </td><!-- Col 6 -->
+                <td class="number">
+                    <button id="g7">7</button>
+                </td><!-- Col 7 -->
+                <td class="number">
+                    <button id="g8">8</button>
+                </td><!-- Col 8 -->
+                <td class="number">
+                    <button id="g9">9</button>
+                </td><!-- Col 9 -->
+                <td class="number">
+                    <button id="g10">10</button>
+                </td><!-- Col 10-->
+                <td class="number">
+                    <button id="g11">11</button>
+                </td><!-- Col 11-->
+                <td class="number">
+                    <button id="g12">12</button>
+                </td><!-- Col 12-->
+                <td class="number">
+                    <button id="g13">13</button>
+                </td><!-- Col 13-->
+                <td class="number">
+                    <button id="g14">14</button>
+                </td><!-- Col 14-->
+                <td class="number">
+                    <button id="g15">15</button>
+                </td><!-- Col 15-->
+                <td class="number">
+                    <button id="g16">16</button>
+                </td><!-- Col 16-->
+                <td class="number">
+                    <button id="g17">17</button>
+                </td><!-- Col 17-->
+                <td class="number">
+                    <button id="g18">18</button>
+                </td><!-- Col 18-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="number">
+                    <button id="p1">1</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period1 group1 RNM sblock gas">
+                    1
+                    <br>
+                    <span class="symbol">H</span><br>Hydrogen
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td colspan="16"></td><!-- Nothing -->
+                <td class="element period1 group18 NG sblock gas">
+                    2
+                    <br>
+                    <span class="symbol">He</span><br>Helium
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p2">2</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period2 group1 AM sblock solid">
+                    3
+                    <br>
+                    <span class="symbol">Li</span><br>Lithium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period2 group2 AEM  sblock solid">
+                    4
+                    <br>
+                    <span class="symbol">Be</span><br>Beryillium
+                </td><!-- Col 2 -->
+                <td colspan="10"></td><!-- Nothing -->
+                <td class="element period2 group13 M pblock solid">
+                    5
+                    <br>
+                    <span class="symbol">B</span><br>Boron
+                </td><!-- Col 13-->
+                <td class="element period2 group14 RNM pblock solid">
+                    6
+                    <br>
+                    <span class="symbol">C</span><br>Carbon
+                </td><!-- Col 14-->
+                <td class="element period2 group15 RNM pblock gas">
+                    7
+                    <br>
+                    <span class="symbol">N</span><br>Nitrogen
+                </td><!-- Col 15-->
+                <td class="element period2 group16 RNM pblock gas">
+                    8
+                    <br>
+                    <span class="symbol">O</span><br>Oxygen
+                </td><!-- Col 16-->
+                <td class="element period2 group17 RNM pblock gas">
+                    9
+                    <br>
+                    <span class="symbol">F</span><br>Fluorine
+                </td><!-- Col 17-->
+                <td class="element period2 group18 NG pblock gas">
+                    10
+                    <br>
+                    <span class="symbol">Ne</span><br>Neon
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p3">3</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period3 group1 AM sblock solid">
+                    11
+                    <br>
+                    <span class="symbol">Na</span><br>Sodium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period3 group2 AEM sblock solid">
+                    12
+                    <br>
+                    <span class="symbol">Mg</span><br>Magnesium
+                </td><!-- Col 2 -->
+                <td colspan="10"></td><!-- Col 3 -->
+
+                <td class="element period3 group13 PTM pblock solid">
+                    13
+                    <br>
+                    <span class="symbol">Al</span><br>Aluminium
+                </td><!-- Col 13-->
+                <td class="element period3 group14 M pblock solid">
+                    14
+                    <br>
+                    <span class="symbol">Si</span><br>Silicon
+                </td><!-- Col 14-->
+                <td class="element period3 group15 RNM pblock solid">
+                    15
+                    <br>
+                    <span class="symbol">P</span><br>Phosphorus
+                </td><!-- Col 15-->
+                <td class="element period3 group16 RNM pblock solid">
+                    16
+                    <br>
+                    <span class="symbol">S</span><br>Sulfur
+                </td><!-- Col 16-->
+                <td class="element period3 group17 RNM pblock gas">
+                    17
+                    <br>
+                    <span class="symbol">Cl</span><br>Chlorine
+                </td><!-- Col 17-->
+                <td class="element period3 group18 NG pblock gas">
+                    18
+                    <br>
+                    <span class="symbol">Ar</span><br>Argon
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p4">4</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period4 group1 AM sblock solid">
+                    19
+                    <br>
+                    <span class="symbol">K</span><br>Potassium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period4 group2 AEM sblock solid">
+                    20
+                    <br>
+                    <span class="symbol">Ca</span><br>Calcium
+                </td><!-- Col 2 -->
+                <td class="element period4 group3 TM dblock solid">
+                    21
+                    <br>
+                    <span class="symbol">Sc</span><br>Scandium
+                </td><!-- Col 3 -->
+                <td class="element period4 group4 TM dblock solid">
+                    22
+                    <br>
+                    <span class="symbol">Ti</span><br>Titanium
+                </td><!-- Col 4 -->
+                <td class="element period4 group5 TM dblock solid">
+                    23
+                    <br>
+                    <span class="symbol">V</span><br>Vanadium
+                </td><!-- Col 5 -->
+                <td class="element period4 group6 TM dblock solid">
+                    24
+                    <br>
+                    <span class="symbol">Cr</span><br>Chromium
+                </td><!-- Col 6 -->
+                <td class="element period4 group7 TM dblock solid">
+                    25
+                    <br>
+                    <span class="symbol">Mn</span><br>Manganese
+                </td><!-- Col 7 -->
+                <td class="element period4 group8 TM dblock solid">
+                    26
+                    <br>
+                    <span class="symbol">Fe</span><br>Iron
+                </td><!-- Col 8 -->
+                <td class="element period4 group9 TM dblock solid">
+                    27
+                    <br>
+                    <span class="symbol">Co</span><br>Cobalt
+                </td><!-- Col 9 -->
+                <td class="element period4 group10 TM dblock solid">
+                    28
+                    <br>
+                    <span class="symbol">Ni</span><br>Nickel
+                </td><!-- Col 10-->
+                <td class="element period4 group11 TM dblock solid">
+                    29
+                    <br>
+                    <span class="symbol">Cu</span><br>Copper
+                </td><!-- Col 11-->
+                <td class="element period4 group12 TM dblock solid">
+                    30
+                    <br>
+                    <span class="symbol">Zn</span><br>Zinc
+                </td><!-- Col 12-->
+                <td class="element period4 group13 PTM pblock solid">
+                    31
+                    <br>
+                    <span class="symbol">Ga</span><br>Gallium
+                </td><!-- Col 13-->
+                <td class="element period4 group14 M pblock solid">
+                    32
+                    <br>
+                    <span class="symbol">Ge</span><br>Germanium
+                </td><!-- Col 14-->
+                <td class="element period4 group15 M pblock solid">
+                    33
+                    <br>
+                    <span class="symbol">As</span><br>Arsenic
+                </td><!-- Col 15-->
+                <td class="element period4 group16 RNM pblock solid">
+                    34
+                    <br>
+                    <span class="symbol">Se</span><br>Selenium
+                </td><!-- Col 16-->
+                <td class="element period4 group17 RNM pblock liquid">
+                    35
+                    <br>
+                    <span class="symbol">Br</span><br>Bromine
+                </td><!-- Col 17-->
+                <td class="element period4 group18 NG pblock gas">
+                    36
+                    <br>
+                    <span class="symbol">Kr</span><br>Krypton
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p5">5</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period5 group1 AM sblock solid">
+                    37
+                    <br>
+                    <span class="symbol">Rb</span><br>Rubidium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period5 group2 AEM sblock solid">
+                    38
+                    <br>
+                    <span class="symbol">Sr</span><br>Strontium
+                </td><!-- Col 2 -->
+                <td class="element period5 group3 TM dblock solid">
+                    39
+                    <br>
+                    <span class="symbol">Y</span><br>Yttrium
+                </td><!-- Col 3 -->
+                <td class="element period5 group4 TM dblock solid">
+                    40
+                    <br>
+                    <span class="symbol">Zr</span><br>Zirconium
+                </td><!-- Col 4 -->
+                <td class="element period5 group5 TM dblock solid">
+                    41
+                    <br>
+                    <span class="symbol">Nb</span><br>Niobium
+                </td><!-- Col 5 -->
+                <td class="element period5 group6 TM dblock solid">
+                    42
+                    <br>
+                    <span class="symbol">Mo</span><br>Molybdenum
+                </td><!-- Col 6 -->
+                <td class="element period5 group7 TM dblock solid">
+                    43
+                    <br>
+                    <span class="symbol">Tc</span><br>Technetium
+                </td><!-- Col 7 -->
+                <td class="element period5 group8 TM dblock solid">
+                    44
+                    <br>
+                    <span class="symbol">Ru</span><br>Ruthenium
+                </td><!-- Col 8 -->
+                <td class="element period5 group9 TM dblock solid">
+                    45
+                    <br>
+                    <span class="symbol">Rh</span><br>Rhodium
+                </td><!-- Col 9 -->
+                <td class="element period5 group10 TM dblock solid">
+                    46
+                    <br>
+                    <span class="symbol">Pd</span><br>Palladium
+                </td><!-- Col 10-->
+                <td class="element period5 group11 TM dblock solid">
+                    47
+                    <br>
+                    <span class="symbol">Ag</span><br>Silver
+                </td><!-- Col 11-->
+                <td class="element period5 group12 TM dblock solid">
+                    48
+                    <br>
+                    <span class="symbol">Cd</span><br>Cadmium
+                </td><!-- Col 12-->
+                <td class="element period5 group13 PTM pblock solid">
+                    49
+                    <br>
+                    <span class="symbol">In</span><br>Indium
+                </td><!-- Col 13-->
+                <td class="element period5 group14 PTM pblock solid">
+                    50
+                    <br>
+                    <span class="symbol">Sn</span><br>Tin
+                </td><!-- Col 14-->
+                <td class="element period5 group15 M pblock solid">
+                    51
+                    <br>
+                    <span class="symbol">Sb</span><br>Antimony
+                </td><!-- Col 15-->
+                <td class="element period5 group16 M pblock solid">
+                    52
+                    <br>
+                    <span class="symbol">Te</span><br>Tellurium
+                </td><!-- Col 16-->
+                <td class="element period5 group17 RNM pblock solid">
+                    53
+                    <br>
+                    <span class="symbol">I</span><br>Iodine
+                </td><!-- Col 17-->
+                <td class="element period5 group18 NG pblock gas">
+                    54
+                    <br>
+                    <span class="symbol">Xe</span><br>Xenon
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p6">6</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period6 group1 AM sblock solid">
+                    55
+                    <br>
+                    <span class="symbol">Cs</span><br>Caesium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period6 group2 AEM sblock solid">
+                    56
+                    <br>
+                    <span class="symbol">Ba</span><br>Barium
+                </td><!-- Col 2 -->
+                <td class="element period6 group3 LAN dblock solid">
+                    57
+                    <br>
+                    <span class="symbol">La</span><br>Lanthanum
+                </td><!-- Col 3 -->
+                <td class="element period6 group4 TM dblock solid">
+                    72
+                    <br>
+                    <span class="symbol">Hf</span><br>Hafnium
+                </td><!-- Col 4 -->
+                <td class="element period6 group5 TM dblock solid">
+                    73
+                    <br>
+                    <span class="symbol">Ta</span><br>Tantalum
+                </td><!-- Col 5 -->
+                <td class="element period6 group6 TM dblock solid">
+                    74
+                    <br>
+                    <span class="symbol">W</span><br>Tungsten
+                </td><!-- Col 6 -->
+                <td class="element period6 group7 TM dblock solid">
+                    75
+                    <br>
+                    <span class="symbol">Re</span><br>Rhenium
+                </td><!-- Col 7 -->
+                <td class="element period6 group8 TM dblock solid">
+                    76
+                    <br>
+                    <span class="symbol">Os</span><br>Osmium
+                </td><!-- Col 8 -->
+                <td class="element period6 group9 TM dblock solid">
+                    77
+                    <br>
+                    <span class="symbol">Ir</span><br>Iridium
+                </td><!-- Col 9 -->
+                <td class="element period6 group10 TM dblock solid">
+                    78
+                    <br>
+                    <span class="symbol">Pt</span><br>Platinum
+                </td><!-- Col 10 -->
+                <td class="element period6 group11 TM dblock solid">
+                    79
+                    <br>
+                    <span class="symbol">Au</span><br>Gold
+                </td><!-- Col 11-->
+                <td class="element period6 group12 TM dblock liquid">
+                    80
+                    <br>
+                    <span class="symbol">Hg</span><br>Mercury
+                </td><!-- Col 12-->
+                <td class="element period6 group13 PTM pblock solid">
+                    81
+                    <br>
+                    <span class="symbol">Tl</span><br>Thallium
+                </td><!-- Col 13-->
+                <td class="element period6 group14 PTM pblock solid">
+                    82
+                    <br>
+                    <span class="symbol">Pb</span><br>Lead
+                </td><!-- Col 14-->
+                <td class="element period6 group15 PTM pblock solid">
+                    83
+                    <br>
+                    <span class="symbol">Bi</span><br>Bismuth
+                </td><!-- Col 15-->
+                <td class="element period6 group16 PTM pblock solid">
+                    84
+                    <br>
+                    <span class="symbol">Po</span><br>Polonium
+                </td><!-- Col 16-->
+                <td class="element period6 group17 M pblock solid">
+                    85
+                    <br>
+                    <span class="symbol">At</span><br>Astatine
+                </td><!-- Col 17-->
+                <td class="element period6 group18 NG pblock gas">
+                    86
+                    <br>
+                    <span class="symbol">Rn</span><br>Radon
+                </td><!-- Col 18-->
+            </tr>
+            <tr>
+                <td class="number">
+                    <button id="p7">7</button>
+                </td><!-- tr Number (Period) -->
+                <td class="element period7 group1 AM sblock liquid">
+                    87
+                    <br>
+                    <span class="symbol">Fr</span><br>Francium
+                </td><!-- Col 1 --> <!-- Cols are Groups -->
+                <td class="element period7 group2 AEM sblock solid">
+                    88
+                    <br>
+                    <span class="symbol">Ra</span><br>Radium
+                </td><!-- Col 2 -->
+                <td class="element period7 group3 ACT dblock solid">
+                    89
+                    <br>
+                    <span class="symbol">Ac</span><br>Actinium
+                </td><!-- Col 3 -->
+                <td class="element period7 group4 TM dblock solid">
+                    104
+                    <br>
+                    <span class="symbol">Rf</span><br>Rutherfordium
+                </td><!-- Col 4 -->
+                <td class="element period7 group5 TM dblock solid">
+                    105
+                    <br>
+                    <span class="symbol">Db</span><br>Dubnium
+                </td><!-- Col 5 -->
+                <td class="element period7 group6 TM dblock solid">
+                    106
+                    <br>
+                    <span class="symbol">Sg</span><br>Seaborgium
+                </td><!-- Col 6 -->
+                <td class="element period7 group7 TM dblock solid">
+                    107
+                    <br>
+                    <span class="symbol">Bh</span><br>Bohrium
+                </td><!-- Col 7 -->
+                <td class="element period7 group8 TM dblock solid">
+                    108
+                    <br>
+                    <span class="symbol">Hs</span><br>Hassium
+                </td><!-- Col 8 -->
+                <td class="element period7 group9 UNK dblock solid">
+                    109
+                    <br>
+                    <span class="symbol">Mt</span><br>Meitnerium
+                </td><!-- Col 9 -->
+                <td class="element period7 group10 UNK dblock solid">
+                    110
+                    <br>
+                    <span class="symbol">Ds</span><br>Darmstadtium
+                </td><!-- Col 10-->
+                <td class="element period7 group11 UNK dblock solid">
+                    111
+                    <br>
+                    <span class="symbol">Rg</span><br>Roentgenium
+                </td><!-- Col 11-->
+                <td class="element period7 group12 UNK dblock solid">
+                    112
+                    <br>
+                    <span class="symbol">Cn</span><br>Copernicium
+                </td><!-- Col 12-->
+                <td class="element period7 group13 UNK pblock solid">
+                    113
+                    <br>
+                    <span class="symbol">Nh</span><br>Nihonium
+                </td><!-- Col 13-->
+                <td class="element period7 group14 UNK pblock solid">
+                    114
+                    <br>
+                    <span class="symbol">Fl</span><br>Flerovium
+                </td><!-- Col 14-->
+                <td class="element period7 group15 UNK pblock solid">
+                    115
+                    <br>
+                    <span class="symbol">Mc</span><br>Moscovium
+                </td><!-- Col 15-->
+                <td class="element period7 group16 UNK pblock solid">
+                    116
+                    <br>
+                    <span class="symbol">Lv</span><br>Livermorium
+                </td><!-- Col 16-->
+                <td class="element period7 group17 UNK pblock solid">
+                    117
+                    <br>
+                    <span class="symbol">Ts</span><br>Tennessine
+                </td><!-- Col 17-->
+                <td class="element period7 group18 UNK pblock solid">
+                    118
+                    <br>
+                    <span class="symbol">Og</span><br>Oganesson
+                </td><!-- Col 18-->
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td><button id="AMButton">Alkali Metals</button></td>
+            <td><button id="AEMButton">Alkaline Earth Metals</button></td>
+            <td><button id="LANButton">Lanthanoids</button></td>
+            <td><button id="ACTButton">Actinoids</button></td>
+            <td><button id="TMButton">Transition Metals</button></td>
+            <td><button id="PTMButton">Post-Transition Metals</button></td>
+            <td><button id="MButton">Metalloids</button></td>
+            <td><button id="RNMButton">Reactive Non-Metals</button></td>
+            <td><button id="NGButton">Nobel Gases</button></td>
+            <td><button id="UNCLASButton">Unclassified</button></td>
+        </tr>
+        <tr>
+            <td><button id="PnButton">Pnictogens</button></td>
+            <td><button id="ChButton">Chalcogens</button></td>
+            <td><button id="HaButton">Halogens</button></td>
+            <td colspan="4"></td>
+            <td><button id="SolidButton">Solids<span style="color: black"> &#9632</span></button></td>
+            <td><button id="LiquidButton">Liquids<span style="color: blue"> &#9632</span></button></td>
+            <td><button id="GasButton">Gases<span style="color: red"> &#9632</span></button></td>
+        </tr>
+        <tr>
+            <td>
+                <span id="NumberGuesses">Make a Guess</span>
+                <button id="AddGuess">+</button>
+                <button id="MinusGuess">-</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    Designed & Coded by William Rahal
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
